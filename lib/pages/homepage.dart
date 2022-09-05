@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:healthapp/utils/emoticon.dart';
+import 'package:healthapp/utils/exercise_tiles.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -14,9 +15,8 @@ class _HomePageState extends State<HomePage> {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(items: [
         BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
-        BottomNavigationBarItem(icon: Icon(Icons.home), label: ""),
+        BottomNavigationBarItem(icon: Icon(Icons.message), label: ""),
+        BottomNavigationBarItem(icon: Icon(Icons.person), label: ""),
       ]),
       backgroundColor: Colors.blue[800],
       body: SafeArea(
@@ -181,7 +181,32 @@ class _HomePageState extends State<HomePage> {
                         ),
                         Icon(Icons.more_horiz)
                       ],
-                    )
+                    ),
+                    SizedBox(height: 20),
+                    //tiles
+                    Expanded(
+                      child: ListView(
+                        children: [
+                          ExerciseTiles(
+                              ExerciseName: "Speaking Skills",
+                              icon: Icons.favorite,
+                              numberOfExercises: 15,
+                              color: Colors.orange),
+                          ExerciseTiles(
+                            ExerciseName: "Reading Skills",
+                            icon: Icons.person,
+                            numberOfExercises: 8,
+                            color: Colors.green,
+                          ),
+                          ExerciseTiles(
+                            ExerciseName: "Writing Skills",
+                            icon: Icons.star,
+                            numberOfExercises: 20,
+                            color: Colors.pink,
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 )),
               ),
